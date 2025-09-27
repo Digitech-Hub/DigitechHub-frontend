@@ -25,9 +25,18 @@
     "noUncheckedSideEffectImports": true,
 
     /* Module Resolution */
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./*"],
+      "@/components/*": ["./components/*"],
+      "@/pages/*": ["./pages/*"],
+      "@/hooks/*": ["./hooks/*"],
+      "@/services/*": ["./services/*"],
+      "@/stores/*": ["./stores/*"],
+      "@/utils/*": ["./utils/*"],
+      "@/types/*": ["./types/*"],
+      "@/constants/*": ["./constants/*"],
+      "@/assets/*": ["./assets/*"]
     }
   },
   "include": ["src"]

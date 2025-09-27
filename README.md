@@ -38,7 +38,6 @@ src/
 ├── types/              # TypeScript 타입 정의
 ├── constants/          # 상수 정의
 ├── assets/             # 정적 자산 (이미지, 아이콘 등)
-├── App.tsx             # 메인 앱 컴포넌트
 ├── routes.ts           # 라우팅 설정
 ├── main.tsx            # 앱 진입점
 └── index.css           # 글로벌 스타일
@@ -128,6 +127,34 @@ enum EquipmentCategory {
   PROJECTOR = 'projector'
 }
 ```
+
+### Import Alias 사용법
+
+프로젝트에서는 절대 경로 import를 위해 alias를 사용합니다:
+
+```typescript
+// ❌ 상대 경로 (권장하지 않음)
+import { Button } from '../../../components/common/Button';
+import { useAuth } from '../../hooks/useAuth';
+
+// ✅ 절대 경로 alias 사용 (권장)
+import { Button } from '@/components/common/Button';
+import { useAuth } from '@/hooks/useAuth';
+import { Equipment } from '@/types/equipment';
+import { API_ENDPOINTS } from '@/constants/api';
+```
+
+**사용 가능한 Alias:**
+- `@/*` - src 폴더의 모든 파일
+- `@/components/*` - 컴포넌트 파일들
+- `@/pages/*` - 페이지 컴포넌트들
+- `@/hooks/*` - 커스텀 훅들
+- `@/services/*` - API 서비스들
+- `@/stores/*` - 상태 관리 스토어들
+- `@/utils/*` - 유틸리티 함수들
+- `@/types/*` - TypeScript 타입 정의들
+- `@/constants/*` - 상수 정의들
+- `@/assets/*` - 정적 자산들
 
 ### 스타일링 컨벤션
 
