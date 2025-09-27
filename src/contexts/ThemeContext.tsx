@@ -31,8 +31,14 @@ export const ThemeProvider = ({
         setThemeState(newTheme);
     };
 
+    // 테마 상태 계산
+    const isDark = theme === 'dark';
+    const isLight = theme === 'light';
+
     const value: ThemeContextType = {
         theme,
+        isDark,
+        isLight,
         toggleTheme,
         setTheme
     };

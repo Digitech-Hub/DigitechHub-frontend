@@ -29,13 +29,13 @@
 
 /* Dark 테마 */
 .dark {
-  --color-bg-primary: #0f172a;
-  --color-bg-secondary: #1e293b;
-  --color-bg-tertiary: #334155;
+  --color-bg-primary: #1e293b;
+  --color-bg-secondary: #334155;
+  --color-bg-tertiary: #475569;
   --color-text-primary: #f8fafc;
   --color-text-secondary: #cbd5e1;
   --color-text-tertiary: #94a3b8;
-  --color-border: #475569;
+  --color-border: #64748b;
   --color-accent: #60a5fa;
   --color-accent-hover: #3b82f6;
   --color-success: #34d399;
@@ -60,6 +60,7 @@ body {
   --animate-logo-sync: logo-sync 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     forwards;
   --animate-tagline: tagline-fade 1s ease-out forwards;
+  --animate-gradient-shift: gradient-shift 3s ease-in-out infinite;
 
   @keyframes logo-sync {
     0% {
@@ -86,6 +87,18 @@ body {
     100% {
       opacity: 0.7;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
     }
   }
 }

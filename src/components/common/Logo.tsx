@@ -7,7 +7,7 @@ export const Logo = ({
   theme = 'gradient',
   className = ''
 }: LogoProps) => {
-  const { theme: appTheme } = useTheme();
+  const { isDark } = useTheme();
 
   // 크기별 스타일 매핑
   const sizeClasses = {
@@ -23,11 +23,11 @@ export const Logo = ({
       case 'gradient':
         return 'text-white bg-linear-to-r from-indigo-600 to-pink-500 box-decoration-clone';
       case 'white':
-        return appTheme === 'dark'
+        return isDark
           ? 'text-white'
           : 'text-gray-900';
       case 'black':
-        return appTheme === 'dark'
+        return isDark
           ? 'text-gray-900'
           : 'text-gray-900';
       default:
