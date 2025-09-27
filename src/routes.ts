@@ -5,17 +5,17 @@ import { AuthLayout } from "./components/layout";
 const router = createBrowserRouter([
   {
     index: true,
-    Component: SplashPage
+    Component: SplashPage,
   },
   {
     Component: AuthLayout,
     children: [
       {
-        path: "home", Component: HomePage
-      }
-    ]
-  }
+        path: "home",
+        Component: HomePage,
+      },
+    ],
+  },
 ]);
-
 
 export default router;

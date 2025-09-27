@@ -1,7 +1,10 @@
 @import "tailwindcss";
 
 * {
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 /* 테마 변수 정의 */
@@ -19,7 +22,7 @@
   --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
-  
+
   /* 로고 색상 */
   --logo-gradient-from: #4f46e5;
   --logo-gradient-to: #ec4899;
@@ -41,7 +44,7 @@
   --color-success: #34d399;
   --color-warning: #fbbf24;
   --color-error: #f87171;
-  
+
   /* 로고 색상 */
   --logo-gradient-from: #6366f1;
   --logo-gradient-to: #f472b6;

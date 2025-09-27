@@ -1,10 +1,19 @@
-import { ArrowRight, Bell, MessageCircle, Settings, User2, type LucideProps } from "lucide-react";
+import {
+  ArrowRight,
+  Bell,
+  MessageCircle,
+  Settings,
+  User2,
+  type LucideProps,
+} from "lucide-react";
 
 // 메뉴 아이템 타입 정의
 export interface MenuItem {
   id: number;
   label: string;
-  icon: React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>;
+  icon: React.ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
+  >;
   route: string;
 }
 
