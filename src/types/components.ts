@@ -40,3 +40,74 @@ export interface InputProps {
   /** 추가 CSS 클래스명 */
   className?: string;
 }
+
+// HomePage 관련 타입들
+export interface UserProfile {
+  /** 사용자 이름 */
+  username: string;
+  /** 학번 */
+  studentNumber: string;
+  /** 사용자 소개 */
+  bio: string;
+}
+
+export interface MenuOption {
+  /** 옵션 값 */
+  value: string;
+  /** 표시할 텍스트 */
+  label: string;
+}
+
+export interface LunchMenu {
+  /** 메뉴 제목 */
+  title: string;
+  /** 오늘의 메뉴 */
+  todayMenu: string;
+  /** 선택 옵션들 */
+  options: MenuOption[];
+  /** 현재 선택된 옵션 */
+  selectedOption: string;
+}
+
+export interface TimeTable {
+  /** 시간표 제목 */
+  title: string;
+  /** 오늘의 시간표 */
+  todaySchedule: string;
+  /** 학기 옵션들 */
+  semesterOptions: MenuOption[];
+  /** 현재 선택된 학기 */
+  selectedSemester: string;
+}
+
+export interface HomePageData {
+  /** 사용자 프로필 정보 */
+  userProfile: UserProfile;
+  /** 점심 메뉴 정보 */
+  lunchMenu: LunchMenu;
+  /** 시간표 정보 */
+  timeTable: TimeTable;
+}
+
+// 공통 섹션 컴포넌트 타입
+export interface SectionProps {
+  /** 섹션 제목 */
+  title: string;
+  /** 섹션 내용 */
+  children: React.ReactNode;
+  /** 추가 CSS 클래스명 */
+  className?: string;
+  /** 다크 모드 여부 */
+  isDark?: boolean;
+}
+
+export interface SelectProps {
+  /** 선택 옵션들 */
+  options: MenuOption[];
+  /** 현재 선택된 값 */
+  value: string;
+  /** 값 변경 핸들러 */
+  onChange: (value: string) => void;
+  /** 추가 CSS 클래스명 */
+  className?: string;
+}
