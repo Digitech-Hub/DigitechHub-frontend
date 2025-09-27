@@ -1,5 +1,5 @@
 import useBottomNavigation from "@/hooks/useBottomNavigation";
-import { useTheme } from "@/contexts/ThemeContext";
+import { useTheme } from "@/hooks/useTheme";
 import { useNavigate } from "react-router";
 
 export default function Navigation() {

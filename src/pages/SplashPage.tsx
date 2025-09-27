@@ -1,7 +1,7 @@
 import { DigitechLogo, MCLogo } from "@/assets/images";
 import { Logo } from "@/components/common";
 import useSplash from "@/hooks/useSplash";
-import { useTheme } from "@/contexts/ThemeContext";
+import { useTheme } from "@/hooks/useTheme";
 
 export default function SplashPage() {
   const { isDark } = useTheme();
