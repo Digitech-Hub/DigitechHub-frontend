@@ -58,13 +58,9 @@ src/
 ```typescript
 // 컴포넌트 파일 구조 예시
 import React from 'react';
-import { ComponentProps } from './types';
+import { ComponentProps } from '@/types/components';
 
-interface Props {
-  // props 타입 정의
-}
-
-export const ComponentName: React.FC<Props> = ({ prop1, prop2 }) => {
+export const ComponentName: React.FC<ComponentProps> = ({ prop1, prop2 }) => {
   // hooks
   // event handlers
   // render logic
@@ -78,6 +74,55 @@ export const ComponentName: React.FC<Props> = ({ prop1, prop2 }) => {
 
 export default ComponentName;
 ```
+
+### Props 타입 정의 규칙
+
+#### 1. **중앙 집중식 타입 관리**
+- 모든 컴포넌트 props 타입은 `@/types/components.ts`에 정의
+- 컴포넌트별로 인터페이스를 분리하여 관리
+- 재사용 가능한 타입은 별도 파일로 분리
+
+```typescript
+// ✅ 권장: @/types/components.ts
+export interface LogoProps {
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  animated?: boolean;
+  theme?: 'gradient' | 'white' | 'black';
+  className?: string;
+}
+
+// ❌ 비권장: 컴포넌트 파일 내부
+interface LogoProps { ... }
+```
+
+#### 2. **타입 네이밍 컨벤션**
+- 컴포넌트명 + `Props` 접미사 사용
+- PascalCase로 작성
+- JSDoc 주석으로 각 prop 설명 추가
+
+```typescript
+export interface ButtonProps {
+  /** 버튼의 크기를 설정합니다 */
+  size?: 'sm' | 'md' | 'lg';
+  /** 버튼의 스타일 변형 */
+  variant?: 'primary' | 'secondary' | 'outline';
+  /** 버튼 클릭 핸들러 */
+  onClick?: () => void;
+  /** 버튼 내용 */
+  children: React.ReactNode;
+  /** 추가 CSS 클래스명 */
+  className?: string;
+}
+```
+
+#### 3. **타입 정의 위치별 사용 가이드**
+
+| 위치 | 사용 케이스 | 예시 |
+|------|-------------|------|
+| `@/types/components.ts` | 컴포넌트 props | `LogoProps`, `ButtonProps` |
+| `@/types/api.ts` | API 응답/요청 | `EquipmentResponse`, `UserRequest` |
+| `@/types/common.ts` | 공통 타입 | `ApiResponse<T>`, `Pagination` |
+| 컴포넌트 내부 | 로컬 타입만 | 컴포넌트 내부 상태 타입 |
 
 ### 폴더별 역할
 
@@ -160,6 +205,7 @@ import { API_ENDPOINTS } from '@/constants/api';
 
 - **TailwindCSS** 사용
 - 컴포넌트별 스타일은 클래스명으로 관리
+- Headwidn Extension을 설치하여 className을 정렬 관리
 - 공통 스타일은 `index.css`에 정의
 - 반응형 디자인 우선 적용
 
