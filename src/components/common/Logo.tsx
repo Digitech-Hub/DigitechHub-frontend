@@ -1,5 +1,5 @@
 import type { LogoProps } from "@/types/components";
-import { useTheme } from "@/contexts/ThemeContext";
+import { useTheme } from "@/hooks/useTheme";
 
 export const Logo = ({
   size = "lg",
