@@ -111,3 +111,8 @@ export interface SelectProps {
   /** 추가 CSS 클래스명 */
   className?: string;
 }
+
+export interface SelectTimeProps {
+  /** 현재 선택된 시간의 값 */
+  value: string;
+}
