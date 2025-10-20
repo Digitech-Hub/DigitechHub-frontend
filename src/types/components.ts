@@ -89,6 +89,13 @@ export interface HomePageData {
   timeTable: TimeTable;
 }
 
+export interface HeaderPorps {
+  /** 사용자 아이디 */
+  userid: string | null;
+  /** 비교 대상 데이터 */
+  data: string;
+}
+
 // 공통 섹션 컴포넌트 타입
 export interface SectionProps {
   /** 섹션 제목 */
