@@ -2,6 +2,7 @@ import { DigitechLogo } from "@/assets/images";
 import type { HeaderPorps } from "@/types/components";
 import { Link } from "react-router";
 
+// 메뉴 항목 데이터 구조화
 const NAV_ITEMS = [
   { name: "교내안내", path: "/info" },
   { name: "기자재대여", path: "/equipment" },
@@ -36,7 +37,8 @@ export default function Header({ userid, data }: HeaderPorps) {
           ))}
         </nav>
         {/** 로그인 회원가입 또는 사용자 ID 표시 */}
-        {isAuthenticated ? (
+        {/** 임시 논리 부정 연산자 사용 */}
+        {!isAuthenticated ? (
           // 로그인 상태 -> 사용자 ID
           <div className="flex-1 flex justify-end items-center space-x-8">
             <span className="text-lg font-bold">{userid}님</span>
