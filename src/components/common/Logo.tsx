@@ -1,5 +1,4 @@
 import type { LogoProps } from "@/types/components";
-import { useTheme } from "@/hooks/useTheme";
 
 export const Logo = ({
   size = "lg",
@@ -7,7 +6,6 @@ export const Logo = ({
   theme = "gradient",
   className = "",
 }: LogoProps) => {
-  const { isDark } = useTheme();
 
   // 크기별 스타일 매핑
   const sizeClasses = {
@@ -15,20 +13,6 @@ export const Logo = ({
     md: "text-3xl/10",
     lg: "text-4xl/12",
     xl: "text-5xl/14",
-  };
-
-  // 테마별 스타일 매핑
-  const getThemeClasses = () => {
-    switch (theme) {
-      case "gradient":
-        return "text-white bg-linear-to-r from-indigo-600 to-pink-500 box-decoration-clone";
-      case "white":
-        return isDark ? "text-white" : "text-gray-900";
-      case "black":
-        return isDark ? "text-gray-900" : "text-gray-900";
-      default:
-        return "text-white bg-linear-to-r from-indigo-600 to-pink-500 box-decoration-clone";
-    }
   };
 
   const animationClass = animated ? "animate-logo-sync max-w-0" : "";
@@ -40,7 +24,6 @@ export const Logo = ({
         className={`
         ${baseClasses} 
         ${sizeClasses[size]} 
-        ${getThemeClasses()} 
         ${animationClass}
       `}
       >
@@ -50,7 +33,6 @@ export const Logo = ({
         className={`
         ${baseClasses} 
         ${sizeClasses[size]} 
-        ${getThemeClasses()} 
         ${animationClass}
       `}
       >
