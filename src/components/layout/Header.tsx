@@ -38,8 +38,8 @@ export default function Header({ userid, data }: HeaderPorps) {
         {/** 로그인 회원가입 또는 사용자 ID 표시 */}
         {isAuthenticated ? (
           // 로그인 상태 -> 사용자 ID
-          <div className="flex-1 flex jsutify-end items-center space-x-8">
-            <span className="text-lg font-bold">{userid}</span>
+          <div className="flex-1 flex justify-end items-center space-x-8">
+            <span className="text-lg font-bold">{userid}님</span>
           </div>
         ) : (
           // 비로그인 상태 -> 로그인 회원가입 버튼
