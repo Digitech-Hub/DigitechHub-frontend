@@ -3,7 +3,7 @@ import type {
   Theme,
   ThemeContextType,
   ThemeProviderProps,
-} from "@/types/theme";
+} from "@/types/theme.type";
 import { useEffect, useState } from "react";
 
 const ThemeProvider = ({

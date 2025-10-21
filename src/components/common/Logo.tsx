@@ -1,4 +1,4 @@
-import type { LogoProps } from "@/types/components";
+import type { LogoProps } from "@/types/components.type";
 
 export const Logo = ({
   size = "lg",

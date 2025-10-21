@@ -1,4 +1,4 @@
-import type { SelectProps } from '@/types/components';
+import type { SelectProps } from '@/types/components.type';
 
 /**
  * 공통 Select 컴포넌트

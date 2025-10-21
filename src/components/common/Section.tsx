@@ -1,4 +1,4 @@
-import type { SectionProps } from '@/types/components';
+import type { SectionProps } from '@/types/components.type';
 
 interface SectionWithHeaderProps extends SectionProps {
     headerContent?: React.ReactNode;

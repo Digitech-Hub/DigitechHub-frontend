@@ -1,5 +1,5 @@
 import { DigitechLogo } from "@/assets/images";
-import type { HeaderPorps } from "@/types/components";
+import type { HeaderPorps } from "@/types/components.type";
 import { Link } from "react-router";
 
 // 메뉴 항목 데이터 구조화
