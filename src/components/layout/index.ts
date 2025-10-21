@@ -1,2 +1,2 @@
 export { default as AuthLayout } from './AuthLayout';
-export { default as Header } from './header';
+export { default as Header } from './Header';
