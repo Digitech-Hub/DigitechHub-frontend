@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import ThemeContext from '@/contexts/ThemeContext';
+import { ThemeContext } from '@/contexts';
 
 import type {
     Theme,
