@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ThemeProvider from './theme-provider';
+import ThemeProvider from './ThemeProvider';
 
 const RootProvider = ({ children }: { children: React.ReactNode }) => {
     return <ThemeProvider>{children}</ThemeProvider>;
