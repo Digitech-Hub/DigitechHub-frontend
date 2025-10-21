@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import type { LogoProps } from '@/types/components.type';
 
 export const Logo = ({
@@ -18,22 +20,22 @@ export const Logo = ({
     const baseClasses = 'px-2 overflow-hidden font-bold';
 
     return (
-        <div className={`flex flex-col items-start ${className}`}>
+        <div className={classNames('flex flex-col items-start', className)}>
             <span
-                className={`
-        ${baseClasses} 
-        ${sizeClasses[size]} 
-        ${animationClass}
-      `}
+                className={classNames(
+                    baseClasses,
+                    sizeClasses[size],
+                    animationClass,
+                )}
             >
                 Digitech
             </span>
             <span
-                className={`
-        ${baseClasses} 
-        ${sizeClasses[size]} 
-        ${animationClass}
-      `}
+                className={classNames(
+                    baseClasses,
+                    sizeClasses[size],
+                    animationClass,
+                )}
             >
                 Hub
             </span>
