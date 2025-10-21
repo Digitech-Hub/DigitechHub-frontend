@@ -8,7 +8,7 @@ export default function Select({
     options,
     value,
     onChange,
-    className = 'w-24 h-8 rounded-md'
+    className = 'w-24 h-8 rounded-md',
 }: SelectProps) {
     return (
         <select
@@ -23,4 +23,4 @@ export default function Select({
             ))}
         </select>
     );
-};
+}

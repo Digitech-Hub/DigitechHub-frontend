@@ -13,7 +13,7 @@ export default function Section({
     children,
     className = '',
     isDark = false,
-    headerContent
+    headerContent,
 }: SectionWithHeaderProps) {
     const baseClasses = `rounded-lg p-4 ${isDark ? 'bg-gray-700' : 'bg-gray-50'}`;
     const titleClasses = `text-lg font-medium ${isDark ? 'text-white' : 'text-gray-900'}`;
@@ -31,4 +31,4 @@ export default function Section({
             </div>
         </section>
     );
-};
+}
