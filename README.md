@@ -64,7 +64,7 @@ export const ComponentName: React.FC<ComponentProps> = ({ prop1, prop2 }) => {
   // hooks
   // event handlers
   // render logic
-
+  
   return (
     <div>
       {/* JSX */}
@@ -78,7 +78,6 @@ export default ComponentName;
 ### Props 타입 정의 규칙
 
 #### 1. **중앙 집중식 타입 관리**
-
 - 모든 컴포넌트 props 타입은 `@/types/components.ts`에 정의
 - 컴포넌트별로 인터페이스를 분리하여 관리
 - 재사용 가능한 타입은 별도 파일로 분리
@@ -97,64 +96,58 @@ interface LogoProps { ... }
 ```
 
 #### 2. **타입 네이밍 컨벤션**
-
 - 컴포넌트명 + `Props` 접미사 사용
 - PascalCase로 작성
 - JSDoc 주석으로 각 prop 설명 추가
 
 ```typescript
 export interface ButtonProps {
-    /** 버튼의 크기를 설정합니다 */
-    size?: 'sm' | 'md' | 'lg';
-    /** 버튼의 스타일 변형 */
-    variant?: 'primary' | 'secondary' | 'outline';
-    /** 버튼 클릭 핸들러 */
-    onClick?: () => void;
-    /** 버튼 내용 */
-    children: React.ReactNode;
-    /** 추가 CSS 클래스명 */
-    className?: string;
+  /** 버튼의 크기를 설정합니다 */
+  size?: 'sm' | 'md' | 'lg';
+  /** 버튼의 스타일 변형 */
+  variant?: 'primary' | 'secondary' | 'outline';
+  /** 버튼 클릭 핸들러 */
+  onClick?: () => void;
+  /** 버튼 내용 */
+  children: React.ReactNode;
+  /** 추가 CSS 클래스명 */
+  className?: string;
 }
 ```
 
 #### 3. **타입 정의 위치별 사용 가이드**
 
-| 위치                    | 사용 케이스    | 예시                               |
-| ----------------------- | -------------- | ---------------------------------- |
-| `@/types/components.ts` | 컴포넌트 props | `LogoProps`, `ButtonProps`         |
-| `@/types/api.ts`        | API 응답/요청  | `EquipmentResponse`, `UserRequest` |
-| `@/types/common.ts`     | 공통 타입      | `ApiResponse<T>`, `Pagination`     |
-| 컴포넌트 내부           | 로컬 타입만    | 컴포넌트 내부 상태 타입            |
+| 위치 | 사용 케이스 | 예시 |
+|------|-------------|------|
+| `@/types/components.ts` | 컴포넌트 props | `LogoProps`, `ButtonProps` |
+| `@/types/api.ts` | API 응답/요청 | `EquipmentResponse`, `UserRequest` |
+| `@/types/common.ts` | 공통 타입 | `ApiResponse<T>`, `Pagination` |
+| 컴포넌트 내부 | 로컬 타입만 | 컴포넌트 내부 상태 타입 |
 
 ### 폴더별 역할
 
 #### `/src/components`
-
 - **common/**: 앱 전반에서 사용되는 재사용 가능한 컴포넌트
-    - `Button`, `Input`, `Modal`, `LoadingSpinner` 등
+  - `Button`, `Input`, `Modal`, `LoadingSpinner` 등
 - **layout/**: 페이지 레이아웃을 구성하는 컴포넌트
-    - `Header`, `Sidebar`, `Footer`, `Navigation` 등
+  - `Header`, `Sidebar`, `Footer`, `Navigation` 등
 - **feature/**: 특정 기능에 특화된 컴포넌트
-    - `EquipmentCard`, `BookingForm`, `ChatMessage` 등
+  - `EquipmentCard`, `BookingForm`, `ChatMessage` 등
 
 #### `/src/pages`
-
 - 라우트별 페이지 컴포넌트
 - 각 페이지는 해당 기능의 메인 컨테이너 역할
 
 #### `/src/hooks`
-
 - 재사용 가능한 커스텀 훅
 - API 호출, 상태 관리, 폼 처리 등의 로직 캡슐화
 
 #### `/src/services`
-
 - API 통신 로직
 - 외부 서비스 연동 (인증, 파일 업로드 등)
 - HTTP 클라이언트 설정
 
 #### `/src/stores`
-
 - 전역 상태 관리
 - Zustand 또는 Redux Toolkit 사용 예정
 
@@ -163,10 +156,10 @@ export interface ButtonProps {
 ```typescript
 // 인터페이스 명명: PascalCase with I prefix 또는 그냥 PascalCase
 interface Equipment {
-    id: string;
-    name: string;
-    category: EquipmentCategory;
-    available: boolean;
+  id: string;
+  name: string;
+  category: EquipmentCategory;
+  available: boolean;
 }
 
 // 타입 별칭: PascalCase
@@ -174,9 +167,9 @@ type EquipmentStatus = 'available' | 'rented' | 'maintenance';
 
 // 열거형: PascalCase
 enum EquipmentCategory {
-    LAPTOP = 'laptop',
-    CAMERA = 'camera',
-    PROJECTOR = 'projector',
+  LAPTOP = 'laptop',
+  CAMERA = 'camera',
+  PROJECTOR = 'projector'
 }
 ```
 
@@ -197,7 +190,6 @@ import { API_ENDPOINTS } from '@/constants/api';
 ```
 
 **사용 가능한 Alias:**
-
 - `@/*` - src 폴더의 모든 파일
 - `@/components/*` - 컴포넌트 파일들
 - `@/pages/*` - 페이지 컴포넌트들
