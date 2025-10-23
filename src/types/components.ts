@@ -129,7 +129,6 @@ export interface SubMenuItem {
 export interface NavItemPropsModified {
   item: NavItemType;
   onMouseEnter: (itemName: string) => void;
-  onMouseLeave: () => void;
 }
 
 export interface MegaDropdownColumns {

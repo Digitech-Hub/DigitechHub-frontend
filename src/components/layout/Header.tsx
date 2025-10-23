@@ -10,81 +10,65 @@ export default function Header({ userid, data }: HeaderPorps) {
   const isAuthenticated = userid === data && userid !== null;
 
   const [isMegaDropdownOpen, setIsMegaDropdownOpen] = useState<boolean>(false);
-  const [activeMenuName, setActiveMenuName] = useState<string | null>(null);
+  const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
   const tiemoutRef = useRef<number | undefined>(undefined);
 
-  const handleMouseEnter = (menuName: string) => {
+  const handleMouseEnter = () => {
     clearTimeout(tiemoutRef.current);
-    setActiveMenuName(menuName);
+    setIsDropdownVisible(true);
     setIsMegaDropdownOpen(true);
   };
 
   const handleDropDownEnter = () => {
     clearTimeout(tiemoutRef.current);
+    setIsDropdownVisible(true);
     setIsMegaDropdownOpen(true);
   };
 
   const handleDropDownLeave = () => {
+    setIsMegaDropdownOpen(false);
     tiemoutRef.current = setTimeout(() => {
-      setIsMegaDropdownOpen(false);
-      setActiveMenuName(null);
-    }, 250);
+      setIsDropdownVisible(false);
+    }, 300);
   };
 
   const renderMegaDropdown = () => {
-    if (!isMegaDropdownOpen) return null;
+    if (!isDropdownVisible) return null;
 
     return (
       <div
-        className="absolute inset-x-0 top-full mt-0 bg-gray-100 shadow-xl z-50 p-8 dropdown-area"
+        className={`absolute inset-x-0 top-full mt-0 bg-gray-50 shadow-xl z-50 p-8
+        transition-all duration-300 ease-out
+        ${isMegaDropdownOpen
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 -translate-y-2 pointer-events-none"
+        }`}
         onMouseEnter={handleDropDownEnter}
         onMouseLeave={handleDropDownLeave}
       >
         <div className="max-w-7xl mx-auto">
           <div
-            className="grid gap-2"
+            className="grid gap-10 items-start text-center"
             style={{
               gridTemplateColumns: `repeat(${NAV_ITEMS.length}, minmax(0, 1fr))`,
             }}
           >
             {NAV_ITEMS.map((item) => (
               <div key={item.name} className="space-y-2">
-                <h3
-                  className={`text-xl font-bold ${
-                    activeMenuName === item.name
-                      ? "text-blue-600"
-                      : "text-gray-800"
-                  }`}
-                >
-                  <Link
-                    to={item.path}
-                    onClick={() => setIsMegaDropdownOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                </h3>
-
                 {item.columns?.map((column, colIndex) => (
-                  <div key={colIndex} className="space-y-1 mt-2">
-                    {column.title && (
-                      <h4 className="text-lg font-semibold text-gray-700 mb-2">
-                        {column.title}
-                      </h4>
-                    )}
-                    <ul className="space-y-1">
-                      {column.links.map((subItem) => (
-                        <li key={subItem.name}>
-                          <Link
-                            to={subItem.path}
-                            onClick={() => setIsMegaDropdownOpen(false)}
-                            className="block py-2 text-gray-700 hover:bg-gray-200 rounded-sm transition-colors"
-                          >
-                            {subItem.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <ul key={colIndex} className="space-y-1">
+                    {column.links.map((subItem) => (
+                      <li key={subItem.name}>
+                        <Link
+                          to={subItem.path}
+                          onClick={() => setIsDropdownVisible(false)}
+                          className="block text-[1.05rem] py-2 hover:bg-gray-200 rounded-sm transition-colors"
+                        >
+                          {subItem.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 ))}
               </div>
             ))}
@@ -107,11 +91,12 @@ export default function Header({ userid, data }: HeaderPorps) {
           </Link>
         </div>
 
-        {/* Hover 영역 확장 */}
+        {/* 헤더 메뉴 */}
         <div
-          className="hidden md:flex space-x-25 h-full relative"
+          className="hidden md:flex space-x-30 h-full relative"
           onMouseEnter={() => {
             clearTimeout(tiemoutRef.current);
+            setIsDropdownVisible(true);
             setIsMegaDropdownOpen(true);
           }}
         >
@@ -119,9 +104,8 @@ export default function Header({ userid, data }: HeaderPorps) {
             <NavItem
               key={item.name}
               item={item}
-              onMouseEnter={handleMouseEnter} onMouseLeave={function (): void {
-                throw new Error("Function not implemented.");
-              } }            />
+              onMouseEnter={handleMouseEnter}
+            />
           ))}
         </div>
 
@@ -145,7 +129,7 @@ export default function Header({ userid, data }: HeaderPorps) {
         )}
       </div>
 
-      {/* ✅ 메뉴 바 + 드롭다운을 하나의 hover 영역으로 통합 */}
+      {/* 드롭다운 패널 */}
       <div
         className="absolute left-0 right-0 z-40"
         onMouseEnter={handleDropDownEnter}
