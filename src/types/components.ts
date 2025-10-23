@@ -119,6 +119,38 @@ export interface SelectProps {
   className?: string;
 }
 
+export interface SubMenuItem {
+  /** 서브메뉴 표시 이름 */
+  name: string;
+  /**서브메뉴 라우트 경로 */
+  path: string;
+}
+
+export interface NavItemPropsModified {
+  item: NavItemType;
+  onMouseEnter: (itemName: string) => void;
+  onMouseLeave: () => void;
+}
+
+export interface MegaDropdownColumns {
+  title?: string;
+  links: SubMenuItem[];
+}
+
+export interface NavItemType {
+  /**주 메뉴 표시 이름 */
+  name: string;
+  /**주 메뉴 라우트 경로 */
+  path: string;
+  /**서브메뉴 항목들 */
+  columns?: MegaDropdownColumns[];
+}
+
+export interface NavItemProps {
+  /** 네비게이션 아이템 데이터 */
+  item: NavItemType;
+}
+
 export interface SelectTimeProps {
   /** 현재 선택된 시간의 값 */
   value: string;
