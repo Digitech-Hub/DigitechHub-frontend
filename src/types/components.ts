@@ -101,7 +101,7 @@ export interface SectionProps {
   /** 섹션 내용 */
   children: React.ReactNode;
   /** 배경 색상 */
-  bgColor: string;
+  bgColor: "white" | "lightGray" | "skyBlue" | "blue";
 }
 
 export interface SelectProps {
