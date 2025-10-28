@@ -10,7 +10,7 @@ const bgClassMap: Record<SectionProps["bgColor"], string> = {
 export default function Section({ children, bgColor }: SectionProps) {
 
   return (
-    <section className={`grid place-items-center w-full h-screen m-0 p-0 ${bgClassMap[bgColor]}`}>
+    <section className={`grid w-full h-screen m-0 p-0 ${bgClassMap[bgColor]}`}>
       {children}
     </section>
   );
