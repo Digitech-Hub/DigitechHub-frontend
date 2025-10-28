@@ -98,14 +98,10 @@ export interface HeaderPorps {
 
 // 공통 섹션 컴포넌트 타입
 export interface SectionProps {
-  /** 섹션 제목 */
-  title: string;
   /** 섹션 내용 */
   children: React.ReactNode;
-  /** 추가 CSS 클래스명 */
-  className?: string;
-  /** 다크 모드 여부 */
-  isDark?: boolean;
+  /** 배경 색상 */
+  bgColor: string;
 }
 
 export interface SelectProps {
