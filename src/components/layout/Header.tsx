@@ -1,4 +1,3 @@
-/* eslint-disable no-irregular-whitespace */
 import { DigitechLogo } from "@/assets/images";
 import { NAV_ITEMS } from "@/data/navData";
 import type { HeaderPorps } from "@/types/components";
