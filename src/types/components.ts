@@ -1,3 +1,5 @@
+import type React from "react";
+
 export interface LogoProps {
   /** 로고의 크기를 설정합니다 */
   size?: "sm" | "md" | "lg" | "xl";
@@ -149,4 +151,21 @@ export interface NavItemProps {
 export interface SelectTimeProps {
   /** 현재 선택된 시간의 값 */
   value: string;
+}
+
+export interface BoxPosition {
+  /** 박스 위치 */
+  position: string;
+  /** 박스 레이블 */
+  label: string;
+}
+
+export interface BoxProps {
+  /** 박스 내부에 렌더링될 내용 */
+  children: React.ReactNode;
+  /** 추가적인 CSS 클래스명 */
+  className?: string;
+  /** 박스의 크기 */
+  width: string;
+  height: string;
 }

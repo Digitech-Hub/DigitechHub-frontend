@@ -3,7 +3,7 @@ import type { SectionProps } from "@/types/components";
 const bgClassMap: Record<SectionProps["bgColor"], string> = {
     white: "bg-white",
     lightGray: "bg-[lightgray]",
-    skyBlue: "bg-blue-300",
+    skyBlue: "bg-blue-100",
     blue: "bg-blue-500",
 };
 
